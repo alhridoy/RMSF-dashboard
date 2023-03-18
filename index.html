@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163606663-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163606663-1');
+    </script>
+    <!-- Open Graph / Facebook -->   
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bdcovid.com">
+    <meta property="og:title" content="বিডি কোভিড - বাংলাদেশে করোনা ভাইরাস সংক্রমনের পরিস্থিতি">
+    <meta property="og:description" content="বাংলাদেশে করোনা সংক্রমনের আপডেট এবং আক্রান্ত রোগীদের অবস্থান। বাংলাদেশের SEIR মডেল।">
+    <meta property="og:image" content="https://bdcovid.com/images/home.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bdcovid.com">
+    <meta property="twitter:title" content="বিডি কোভিড - বাংলাদেশে করোনা সংক্রমনের পরিস্থিতি">
+    <meta property="twitter:description" content="বাংলাদেশে করোনা সংক্রমনের আপডেট এবং আক্রান্ত রোগীদের অবস্থান। বাংলাদেশের SEIR মডেল।">
+    <meta property="twitter:image" content="https://bdcovid.com/images/home.png">
+    <meta http-equiv="Content-Language" content="bn">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Map Files -->
+    <link rel="stylesheet" href="css/leaflet1.2.css">
+    <link rel="stylesheet" href="css/Markercluster1.2.css">
+    <link rel="stylesheet" href="css/Markercluster1.2.default.css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f08dc14b37.js" crossorigin="anonymous"></script>
+
+    <title>BD Covid - Bangladesh Corona Update</title>
+    <meta name="description" content="Bangladeshi Corona virus situation update, corona positive area heatmap, SEIR model for Bangladesh."/>
+    <meta name="keywords" content="COVID19, Coronavirus, Bangladesh, seir model, seir model bangladesh, bangldesh seir model, coronavirus seir model bangladesh">
+
+</head>
+<body>
+    
+    <!-- Navigation Section -->
+    <header  class="header-section">
+        <!-- navbar section starts -->
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" href="index.html">RMSF Arizona</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="model.html"><i class="fas fa-chart-line"></i> Classification Model</a>
+                        <a class="nav-item nav-link" href="flatenthecurve.html"><i class="fas fa-virus"></i> Regression Model</a>
+                        <a class="nav-item nav-link" href="contact.html"><i class="fas fa-medkit"></i>About</a>
+                    </div>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar section ends -->
+    </header>
+    <!-- Navigation Section ends -->
+
+    <!-- current numbers section -->
+    <section class="current-numbers-section">
+        <div class="container">
+            <div class="row">
+                <!-- single number widget -->
+                <div class="col-md-4 col-6">
+                    <div class="single-card effected">
+                        <h2>Total cases</h2>
+                        <h1 class="counter">487</h1>
+                    </div>
+                </div>
+                <!-- single number widget ends -->
+                
+                <!-- single number widget -->
+                <div class="col-md-4 col-6">
+                    <div class="single-card dead">
+                        <h2>Total death</h2>
+                        <h1 class="counter">35</h1>
+                    </div>
+                </div>
+                <!-- single number widget ends -->
+
+                <!-- single number widget -->
+                <div class="col-md-4 col-6">
+                    <div class="single-card recovered">
+                        <h2>Case per million</h2>
+                        <h1 class="counter">66.9</h1>
+                    </div>
+                </div>
+                <!-- single number widget ends -->
+
+                
+                <!-- single number widget ends -->
+                <!-- single number widget -->
+    
+                <!-- single number widget ends -->
+            </div>
+        </div>
+    </section>
+    <!-- current numbers section ends -->
+
+    <!-- map section -->
+    <section class="bd-map-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-card">
+                        <div class="map" id="map"></div>
+                        <p class="section-subtitle">All information derived from <a href="https://www.azdhs.gov/">AZDHS </a> last updated 2021</p>
+                        <!-- <p>উপরে বাংলাদেশে যে সকল জেলায় কোভিড-১৯ সংক্রমন সনাক্ত হয়েছে সেগুলো হিটম্যাপ আকারে দেখানো হয়েছে। এখানে আমরা রোগীর সংখ্যার ভিত্তিতে সংক্রমিত স্থান গুলো বিভিন্ন রঙ এর ভিত্তিতে দেখিয়েছি। ১৫০ জনের অধিক আক্রান্ত অঞ্চল গুলো <span class="severe"><i class="fas fa-circle"></i></span> , ১২০-১৫০ জনের মধ্যে আক্তান্ত অঞ্চলকে <span class="mildly-severe"><i class="fas fa-circle"></i></span>, ৭০-১২০ জনের মধ্যে আক্তান্ত অঞ্চলকে <span class="mild"><i class="fas fa-circle"></i></span>, ৩০-৭০ জনের মধ্যে আক্তান্ত অঞ্চলকে <span class="light"><i class="fas fa-circle"></i></span>, ০০-৩০ জনের মধ্যে আক্তান্ত অঞ্চলকে <span class="start"><i class="fas fa-circle"></i></span> রঙের মাধ্যমে দেখানো হয়েছে। </p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- map section ends -->
+
+    <!-- cta section -->
+
+    </section>
+    <!-- cta section ends -->
+
+
+ 
+    <!-- map section ends -->
+
+ 
+    <!-- cta section ends -->
+
+
+    <!-- chart section  -->
+    <section class="chart-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 spacing">
+                    <h1 class="section-tittle">Total Cases, total death of Rocky Mountain of Spotted Fever (RMSF)</h1>
+                    <div id="chart1" class="chartCovid"></div>
+                </div>
+                
+          
+            </div>
+        </div>
+    </section>
+    <!-- chart section ends -->
+
+
+    <!-- cta section ends -->
+
+    <!-- footer section -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center footer-text">
+                    <p>This website is developed by Al Ekram Elahee Hridoy(ahridoy@unm.edu), MS Geography, and advised by Dr. Yan Lin (yanlin@unm.edu), Associate Professor,Geography, UNM</p>
+            
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Counter Up -->
+    <script src="js/waypoint.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- map js -->
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet.markercluster.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+
+    <!-- Chart JS -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="js/chart.js"></script>
+    
+    <script src="js/map.js"></script>
+    <!-- main script -->
+    <script src="js/script.js"></script>
+</body>
+</html>

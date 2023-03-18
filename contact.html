@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163606663-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163606663-1');
+    </script>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bdcovid.com/model.html">
+    <meta property="og:title" content="বিডি কোভিড - বাংলাদেশে করোনা সংক্রমনের SEIR মডেল ভিজ্যুয়ালাইজেশন">
+    <meta property="og:description" content="বাংলাদেশে করোনা সংক্রমনের আপডেট এবং আক্রান্ত রোগীদের অবস্থান। বাংলাদেশের SEIR মডেল।">
+    <meta property="og:image" content="https://bdcovid.com/images/model.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bdcovid.com/model.html">
+    <meta property="twitter:title" content="বিডি কোভিড - বাংলাদেশে করোনা সংক্রমনের SEIR মডেল ভিজ্যুয়ালাইজেশন">
+    <meta property="twitter:description" content="বাংলাদেশে করোনা সংক্রমনের আপডেট এবং আক্রান্ত রোগীদের অবস্থান। বাংলাদেশের SEIR মডেল।">
+    <meta property="twitter:image" content="https://bdcovid.com/images/model.png">
+    <meta http-equiv="Content-Language" content="bn">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- SEIR MODEL JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.4"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js'></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/model.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="heatmap.js"></script>
+    <script src="leaflet-heatmap.js"></script>
+  
+    <script src="Bike_Thefts_sample.js"></script>
+    <script src="myMain.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f08dc14b37.js" crossorigin="anonymous"></script>
+     <!-- Map Files -->
+     <link rel="stylesheet" href="css/leaflet1.2.css">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+   
+
+    <title>BD Covid - SEIR Model of Bangladesh</title>
+    <meta name="description" content="SEIR Model for Bangladesh Covid19"/>
+    <meta name="keywords" content="COVID19, Coronavirus, Bangladesh, seir model, seir model bangladesh, bangldesh seir model, coronavirus seir model bangladesh">
+</head>
+
+<body>
+
+    <!-- Navigation Section -->
+    <header  class="header-section">
+        <!-- navbar section starts -->
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" href="index.html">RMSF ARIZONA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="model.html"><i class="fas fa-chart-line"></i> Classification Model</a>
+                        <a class="nav-item nav-link" href="flatenthecurve.html"><i class="fas fa-virus"></i> Regression Model</a>
+                        <a class="nav-item nav-link" href="contact.html"><i class="fas fa-medkit"></i>About</a>
+                    </div>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar section ends -->
+    </header>
+    <!-- Navigation Section ends -->
+
+
+    <!-- SEIR Model Section -->
+
+                 
+    <!-- Artocle section -->
+    <section class="article-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-sm-12">
+                    <!-- Single Article -->
+                    <div class="single-article">
+                        <h1 class="article-heading">Problem Statement</h1>
+                     
+                        <!-- notice -->
+                        <div class="notice alert-warning">
+                         
+                            <p>Rocky Mountain Spotted Fever (RMSF) is a potentially fatal Tick Disease (TD) caused by the bacterium Rickettsia and has disproportionally affected communities in southwest US (e.g., Arizona, and Navajo Nation). To address this problem, we have developed a machine and deep  learning classification and prediction system that uses geovisualization techniques to identify high-risk areas for RMSF in Arizona. </p>
+                            <br><br>
+                             <p>Our system includes a first-of-its-kind climate-based classification model with a Receiver Operating Characteristic Area Under the Curve (ROC AUC ) of 0.97, which can accurately predict which counties in Arizona are most likely to have a high incidence of RMSF. Additionally, we have implemented a deep learning method known as  Long-Short Term Neural Networks(LSTM) to predict the possible occurrence of RMSF in each county.</p>
+                                
+                             <br><br>
+
+                            <p> Our approach to predicting the spread of RMSF will enable public health officials to take timely preventive measures and allocate resources to the areas at greatest risk. Our machine learning system has the potential to significantly reduce the incidence of this potentially fatal disease in the southwestern United States. </p>
+                                
+                        
+
+                     
+                        
+                           
+                        
+                           
+                        </div>
+                        <!-- notice end -->
+
+                      
+                     
+
+
+                    </div>
+
+                    <div class="single-article">
+                        <h1 class="article-heading">Limitation and Future Works</h1>
+                     
+                        <!-- notice -->
+                        <div class="notice alert-warning">
+
+                           
+                        
+                            <p> The data is satellite derived ;thus, temporal and spatial resolution of data is a limitation of this study.
+                                We had county-level RMSF cases. Moreover, granular-level data will facilitate more accurate modelling of the disease dynamics.
+                                In future work, authors want to integrate more granular RMSF data  at zip-code level to improve the prediction model.
+                                 </p>
+                                <p> In future we aim to develope a machine learning based mobile application for classying and predicting RMSF incidence </p>
+                        </div>
+                        <!-- notice end -->
+
+                      
+                     
+
+
+                    </div>
+
+
+                    <div class="single-article">
+                        <h1 class="article-heading">Acknowledgment</h1>
+                     
+                        <!-- notice -->
+                        <div class="notice alert-warning">
+
+                           
+                        
+                            <p> 
+                                This work was facilitated with Google Earth Engine and ADHS, we thank to GEE team and ADHS.
+Funding for this project provided by the National Science Foundation, Award Number 201960.
+This work has not been formally reviewed by NSF. The views expressed are solely those of the authors and do not necessarily reflect those of these agencies.
+
+                                 </p>
+                        </div>
+                        <!-- notice end -->
+
+                      
+                     
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer section -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center footer-text">
+                    <p>This website is developed by Al Ekram Elahee Hridoy(ahridoy@unm.edu), MS Geography, and advised by Dr. Yan Lin (yanlin@unm.edu), Associate Professor,Geography, UNM</p>
+            
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section ends -->
+
+    <!-- jQuery JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/proba.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/leaflet.js"></script>
+
+   
+   
+   
+
+   <script src="js/Ari_RF_map.js"></script>
+
+</body>

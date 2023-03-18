@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163606663-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163606663-1');
+    </script>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bdcovid.com/model.html">
+    <meta property="og:title" content="বিডি কোভিড - বাংলাদেশে করোনা সংক্রমনের SEIR মডেল ভিজ্যুয়ালাইজেশন">
+    <meta property="og:description" content="বাংলাদেশে করোনা সংক্রমনের আপডেট এবং আক্রান্ত রোগীদের অবস্থান। বাংলাদেশের SEIR মডেল।">
+    <meta property="og:image" content="https://bdcovid.com/images/model.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bdcovid.com/model.html">
+    <meta property="twitter:title" content="বিডি কোভিড - বাংলাদেশে করোনা সংক্রমনের SEIR মডেল ভিজ্যুয়ালাইজেশন">
+    <meta property="twitter:description" content="বাংলাদেশে করোনা সংক্রমনের আপডেট এবং আক্রান্ত রোগীদের অবস্থান। বাংলাদেশের SEIR মডেল।">
+    <meta property="twitter:image" content="https://bdcovid.com/images/model.png">
+    <meta http-equiv="Content-Language" content="bn">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- SEIR MODEL JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.4"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js'></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/model.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="heatmap.js"></script>
+    <script src="leaflet-heatmap.js"></script>
+  
+    <script src="Bike_Thefts_sample.js"></script>
+    <script src="myMain.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f08dc14b37.js" crossorigin="anonymous"></script>
+     <!-- Map Files -->
+     <link rel="stylesheet" href="css/leaflet1.2.css">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+   
+
+    <title>BD Covid - SEIR Model of Bangladesh</title>
+    <meta name="description" content="SEIR Model for Bangladesh Covid19"/>
+    <meta name="keywords" content="COVID19, Coronavirus, Bangladesh, seir model, seir model bangladesh, bangldesh seir model, coronavirus seir model bangladesh">
+</head>
+
+<body>
+
+    <!-- Navigation Section -->
+    <header  class="header-section">
+        <!-- navbar section starts -->
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" href="index.html">RMSF ARIZONA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="model.html"><i class="fas fa-chart-line"></i> Classification Model</a>
+                        <a class="nav-item nav-link" href="flatenthecurve.html"><i class="fas fa-virus"></i> Regression Model</a>
+                        <a class="nav-item nav-link" href="contac.html"><i class="fas fa-medkit"></i>About</a>
+                    </div>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar section ends -->
+    </header>
+    <!-- Navigation Section ends -->
+
+
+    <!-- SEIR Model Section -->
+    <section class="seir-model-section">
+        <div class="container">
+            <div class="row seir-model-wrapper">
+                <div class="col-md-12">
+                    <h2>High risk of RMSF incidence in Arizona in 2021</h2>
+                    <p><b>Disclaimer:</b> This work has not been formally reviewed by NSF. The views expressed are solely those of the authors and do not necessarily reflect those of these Agencies.
+                        ।</p>
+                   
+                </div>
+
+                <!-- chart-controls -->
+                <div class="col-md-12 mt-5">
+                    <section class="bd-map-section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="section-card">
+                                        <div class="map" id="map_rf"></div>
+                                       
+                                        <!-- <p>উপরে বাংলাদেশে যে সকল জেলায় কোভিড-১৯ সংক্রমন সনাক্ত হয়েছে সেগুলো হিটম্যাপ আকারে দেখানো হয়েছে। এখানে আমরা রোগীর সংখ্যার ভিত্তিতে সংক্রমিত স্থান গুলো বিভিন্ন রঙ এর ভিত্তিতে দেখিয়েছি। ১৫০ জনের অধিক আক্রান্ত অঞ্চল গুলো <span class="severe"><i class="fas fa-circle"></i></span> , ১২০-১৫০ জনের মধ্যে আক্তান্ত অঞ্চলকে <span class="mildly-severe"><i class="fas fa-circle"></i></span>, ৭০-১২০ জনের মধ্যে আক্তান্ত অঞ্চলকে <span class="mild"><i class="fas fa-circle"></i></span>, ৩০-৭০ জনের মধ্যে আক্তান্ত অঞ্চলকে <span class="light"><i class="fas fa-circle"></i></span>, ০০-৩০ জনের মধ্যে আক্তান্ত অঞ্চলকে <span class="start"><i class="fas fa-circle"></i></span> রঙের মাধ্যমে দেখানো হয়েছে। </p> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                   </div>
+
+                <!-- article -->
+                 
+    <!-- Artocle section -->
+    <section class="article-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-sm-12">
+                    <!-- Single Article -->
+                    <div class="single-article">
+                        <h1 class="article-heading">Model Details</h1>
+                        <p class="author"><i class="fas fa-user"></i> <a href="https://www.washingtonpost.com/people/harry-stevens/">হেনরি স্টিভেন্স</a> মার্চ ১৯, ২০২০</p>
+
+                        <!-- notice -->
+                        <div class="notice alert-warning">
+                            <h2>অনুগ্রহ করে জেনে রাখুন</h2>
+                            <p>দ্য ওয়াশিংটন পোস্ট বিনামূল্যে এই সংবাদটি প্রকাশ করছে যাতে বিশ্বের সকল প্রান্তের মানুষ করোনাভাইরাস সম্পর্কে এসব গুরুত্বপূর্ণ তথ্য জানতে পারে।</p>
+                        </div>
+                        <!-- notice end -->
+
+                        <p>Preparaing the data</p>
+                        
+                        <p>To define a "high incidence" county, we use the CDC's definition, which states that a county with more than 10 cases per population of 100,000 is considered to have a high incidence of Lyme Disease. To bin the data for classification models, we set the CDC cutoff to 10/100000</p>
+                        <p> we observe the large class imbalance in the "high_incidence"</p>
+                        <p> we are splitting a dataset into three parts: a training set, a validation set, and a test set. We do this so that we can evaluate how well our Random Forest model works on new, unseen data.
+
+                            We split the dataset in a way that ensures that each set has a representative sample of the different classes present in the target variable</p>
+                        <h2>hyperparamter tuning</h2>
+                        
+                        <p>we are specifying the hyperparameters for our Random Forest model. Hyperparameters are values that we set before we fit our model to the data. These values control how the model behaves and can affect its performance. In this case, we are setting three hyperparameters: the maximum number of features used at each split of the tree ("max_features"), the minimum number of samples required to be at a leaf node ("min_samples_leaf"), and the number of trees in the forest ("n_estimators"). These values were chosen based on experimentation and tuning to achieve good performance.</p>
+                        <p>Our pipeline for training the Random Forest model included a set of hyperparameters that were carefully tuned to optimize its performance. Specifically, we set the "max_features" parameter to "sqrt", which limits the number of features considered at each split of the tree, the "min_samples_leaf" parameter to 2, which sets a minimum number of samples required to be at a leaf node, and the "n_estimators" parameter to 1500, which determines the number of trees in the forest.</p>
+                        <p>In addition to these hyperparameters, we applied a set of transformations and resampling techniques to the data before fitting the Random Forest model. These included scaling the data using the "StandardScaler" function, which standardizes the features to have a mean of 0 and a variance of 1, and then fitting a Random Forest Classifier to the transformed data, with the "n_jobs" parameter set to -1 to take advantage of all available processors.</p>
+                        <h2> Performace of our random forest model</h2>
+                        <p>The false positive rate (FPR) is the proportion of true negative instances that are incorrectly classified as positive (i.e., the number of false positives divided by the total number of true negatives). It represents the model's tendency to classify negative instances as positive. In your case, the FPR array contains values ranging from 0 to 1, with the first value being 0 and the last value being 1. This suggests that your model is able to achieve perfect specificity (i.e., no false positives) at the cost of reduced sensitivity (i.e., higher false negatives).</p>
+                        <p>The true positive rate (TPR), also known as sensitivity or recall, is the proportion of true positive instances that are correctly classified as positive (i.e., the number of true positives divided by the total number of positive instances). It represents the model's ability to correctly classify positive instances. In your case, the TPR array ranges from 0 to 1, with the last three values being 1. This suggests that your model is able to achieve perfect sensitivity at the cost of reduced specificity (i.e., higher false positives).</p>
+                       
+                        <img src="images/1.png" alt="">
+                        <h2>Probability Distribution of Random Forest Model</h2>
+                        <p> The probability distribution gives us insight into how confident the model is in its predictions for each possible class. </p>
+                        <img src="images/2.png" alt="">
+                        <h2>ROC AUC (Receiver Operating Characteristic Area Under the Curve)</h2>
+                        <p>The ROC AUC score is a metric used to evaluate the performance of a classification model. It stands for Receiver Operating Characteristic Area Under the Curve score, and it measures the model's ability to distinguish between positive and negative classes.
+
+                            The ROC AUC score ranges from 0 to 1, with a score of 1 indicating a perfect model that can correctly identify all positive and negative classes. A score of 0.5 indicates a model that performs no better than random chance.
+                            
+                            In this case, the model achieved a ROC AUC score of 0.974, which is considered a very good score. It indicates that the model is highly accurate at distinguishing between positive and negative classes, and can be considered a reliable predictor of the target variable.</p>
+
+                        
+                            <h2>Final confusion Matrix</h2>
+                        
+                        <img src="images/3.png" alt="">
+                        <p>The confusion matrix is a performance evaluation matrix that is used to assess the accuracy of a classification model. It is a table that shows the number of true positives, false positives, true negatives, and false negatives for a given classification problem.
+
+                            In the matrix, the true positives (TP) represent the number of correctly classified positive instances, while false positives (FP) represent the number of negative instances that were wrongly classified as positive. True negatives (TN) represent the number of correctly classified negative instances, and false negatives (FN) represent the number of positive instances that were wrongly classified as negative.
+                            
+                            In the given confusion matrix, the first row represents the actual negative instances, while the second row represents the actual positive instances. The first column represents the predicted negative instances, while the second column represents the predicted positive instances.
+                            
+                            From the matrix, we can see that there are 35 true negatives (TN) and 3 true positives (TP), indicating that the model correctly classified 38 instances out of a total of 42 instances. There are also 4 false positives (FP) and 0 false negatives (FN), indicating that the model incorrectly classified 4 instances as positive when they were actually negative.</p>
+                            <h2>Features Importance</h2>
+
+                            <img src="images/5.png"" alt="">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer section -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center footer-text">
+                    <p>This website is developed by Al Ekram Elahee Hridoy(ahridoy@unm.edu), MS Geography, and advised by Dr. Yan Lin (yanlin@unm.edu), Associate Professor,Geography, UNM</p>
+            
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section ends -->
+
+    <!-- jQuery JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/proba.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/leaflet.js"></script>
+
+   
+   
+   
+
+   <script src="js/Ari_RF_map.js"></script>
+
+</body>
