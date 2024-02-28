@@ -1,2 +1,2 @@
-# BDCOVID19
-An epidemic growth rate visualization for COVID19 effect on Bangladesh.
+# RMSF Arizona
+This web page shows Machine Learning prediction of RMSF in Arizona
